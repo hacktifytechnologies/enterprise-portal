@@ -1,0 +1,35 @@
+- name: 'HACKTIFY: Setup Enterprise Portal Lab'
+  id: 47af5213-836e-3ea0-c7ed-f2f54599ea94
+  description: >-
+    An enterprise web portal is running on port 5000. The platform has a
+    login page, a user dashboard, and an internal admin section. Your
+    objective is a three-stage compromise: gain initial access through the
+    login form, escalate your session privileges to reach the admin panel,
+    and achieve Remote Code Execution through a feature available only to
+    administrators. Start at the login page and work your way through each
+    layer of the application.
+  tactic: initial-access
+  technique_id: T1190
+  technique_name: 'Exploit Public-Facing Application'
+  singleton: true
+  repeatable: false
+  delete_payload: false
+  executors:
+    - name: sh
+      platform: linux
+      command: |
+        git clone https://github.com/hacktifytechnologies/enterprise-portal /opt/hacktify/enterprise-portal
+        cd /opt/hacktify/enterprise-portal
+        chmod +x setup.sh
+        bash setup.sh -a
+      code: null
+      language: null
+      build_target: null
+      payloads: []
+      uploads: []
+      timeout: 300
+      parsers: []
+      cleanup: []
+      variations: []
+      additional_info: {}
+  requirements: []
