@@ -1,9 +1,9 @@
-version: '3.8'
-
 services:
   enterprise-portal:
+    image: hacktifytechnologies/enterprise-portal:1.0
+    container_name: enterprise-portal
     ports:
       - "5000:5000"
     environment:
-      - PORT=5000
+      PORT: 5000
     restart: unless-stopped
